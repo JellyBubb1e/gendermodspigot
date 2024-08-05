@@ -28,18 +28,16 @@ public class GenderData {
     public UUID uuid;
     public Gender gender;
 
-    public float bust_size;
+    public float bustSize;
     public boolean hurtSounds;
 
     // Physics variables
-    public boolean breast_physics;
-    public boolean show_in_armor;
+    public boolean breastPhysics;
+    public boolean showInArmor;
     public float bounceMultiplier;
     public float floppyMultiplier;
 
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
+    public Vector3f offsets;
     public boolean uniboob;
     public float cleavage;
 
@@ -47,16 +45,14 @@ public class GenderData {
         buffer.writeUUID(this.uuid);
         buffer.writeEnum(this.gender);
 
-        buffer.realBuffer().writeFloat(this.bust_size);
+        buffer.realBuffer().writeFloat(this.bustSize);
         buffer.realBuffer().writeBoolean(this.hurtSounds);
-        buffer.realBuffer().writeBoolean(this.breast_physics);
-        buffer.realBuffer().writeBoolean(this.show_in_armor);
+        buffer.realBuffer().writeBoolean(this.breastPhysics);
+        buffer.realBuffer().writeBoolean(this.showInArmor);
         buffer.realBuffer().writeFloat(this.bounceMultiplier);
         buffer.realBuffer().writeFloat(this.floppyMultiplier);
 
-        buffer.realBuffer().writeFloat(this.xOffset);
-        buffer.realBuffer().writeFloat(this.yOffset);
-        buffer.realBuffer().writeFloat(this.zOffset);
+        buffer.realBuffer().writeVector3f(this.offsets);
         buffer.realBuffer().writeBoolean(this.uniboob);
         buffer.realBuffer().writeFloat(this.cleavage);
     }
@@ -67,16 +63,14 @@ public class GenderData {
         data.uuid = buffer.readUUID();
         data.gender = buffer.readEnum(Gender.class);
 
-        data.bust_size = buffer.realBuffer().readFloat();
+        data.bustSize = buffer.realBuffer().readFloat();
         data.hurtSounds = buffer.realBuffer().readBoolean();
-        data.breast_physics = buffer.realBuffer().readBoolean();
-        data.show_in_armor = buffer.realBuffer().readBoolean();
+        data.breastPhysics = buffer.realBuffer().readBoolean();
+        data.showInArmor = buffer.realBuffer().readBoolean();
         data.bounceMultiplier = buffer.realBuffer().readFloat();
         data.floppyMultiplier = buffer.realBuffer().readFloat();
 
-        data.xOffset = buffer.realBuffer().readFloat();
-        data.yOffset = buffer.realBuffer().readFloat();
-        data.zOffset = buffer.realBuffer().readFloat();
+        data.offsets = buffer.realBuffer().readVector3f();
         data.uniboob = buffer.realBuffer().readBoolean();
         data.cleavage = buffer.realBuffer().readFloat();
 
